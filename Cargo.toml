@@ -1,0 +1,9 @@
+[package]
+name = "first_bot"
+version = "0.1.0"
+authors = ["Parker Frost <parkerfrost@pm.me>"]
+edition = "2018"
+
+[dependencies]
+serenity = "0.11.2"
+tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
