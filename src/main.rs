@@ -1,3 +1,7 @@
+mod data;
+
+use data::Qotd;
+
 use std::collections::{HashMap, HashSet};
 use std::env;
 use std::fmt::Write;
@@ -53,7 +57,8 @@ impl EventHandler for Handler {
     ping,
     latency,
     some_long_command,
-    upper_command
+    upper_command,
+    qotd
 )]
 struct General;
 
@@ -476,6 +481,19 @@ async fn about(ctx: &Context, msg: &Message) -> CommandResult {
         .say(&ctx.http, "This is a small test-bot! : )")
         .await?;
 
+    Ok(())
+}
+
+#[command]
+async fn qotd(ctx: &Context, msg: &Message) -> CommandResult {
+    #[allow(unused_assignments)]
+    let mut question = String::new();
+    match Qotd::a_question() {
+        Err(_) => question = "Your a_question function sucks".to_string(),
+        Ok(string) => question = string,
+    };
+
+    msg.channel_id.say(&ctx.http, question).await?;
     Ok(())
 }
 

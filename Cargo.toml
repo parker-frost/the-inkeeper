@@ -1,5 +1,5 @@
 [package]
-name = "first_bot"
+name = "the_inkeeper"
 version = "0.1.0"
 authors = ["Parker Frost <parkerfrost@pm.me>"]
 edition = "2018"
@@ -7,3 +7,7 @@ edition = "2018"
 [dependencies]
 serenity = "0.11.2"
 tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
+rand = "0.8.5"
+serde = "1.0"
+csv = "1.1"
+serde_derive = "1.0"
